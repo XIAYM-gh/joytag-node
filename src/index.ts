@@ -55,8 +55,8 @@ await app.register(fastifyMultipart, {
 	}
 
 	app.addHook('onRequest', async (req, res) => {
-		if (process.env.AUTH_TOKEN && !req.headers.authorization && req.headers.authorization != `Bearer ${process.env.AUTH_TOKEN}`) {
-			res.code(401).send({ error: 'Unauthorized' });
+		if (process.env.AUTH_TOKEN && req.headers.authorization != `Bearer ${process.env.AUTH_TOKEN}`) {
+			return res.code(401).send({ error: 'Unauthorized' });
 		}
 	});
 
