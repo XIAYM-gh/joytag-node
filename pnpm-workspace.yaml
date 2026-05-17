@@ -1,0 +1,5 @@
+allowBuilds:
+  onnxruntime-node: true
+  sharp: true
+patchedDependencies:
+  onnxruntime-node: patches/onnxruntime-node.patch

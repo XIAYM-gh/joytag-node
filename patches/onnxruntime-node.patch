@@ -1,0 +1,26 @@
+diff --git a/script/install-utils.js b/script/install-utils.js
+index abfacce881600c17dd1396c9b33e2721bd33287e..7a1529ce3586b09ece2a9d30fbe62f6e848fb03d 100644
+--- a/script/install-utils.js
++++ b/script/install-utils.js
+@@ -15,6 +15,10 @@ async function downloadFile(url, dest) {
+     const file = fs.createWriteStream(dest);
+     https
+       .get(url, (res) => {
++        if (res.statusCode >= 300 && res.statusCode < 400) {
++          resolve(downloadFile(res.headers.location, dest));
++          return;
++        }
+         if (res.statusCode !== 200) {
+           file.close();
+           fs.unlinkSync(dest);
+@@ -53,6 +57,10 @@ async function downloadJson(url) {
+         if (statusCode >= 400 && statusCode < 500) {
+           resolve(null);
+           return;
++        }
++        if (statusCode >= 300 && statusCode < 400) {
++          resolve(downloadJson(res.headers.location));
++          return;
+         } else if (statusCode !== 200) {
+           reject(new Error(`Failed to download build list. HTTP status code = ${statusCode}`));
+           return;

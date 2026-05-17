@@ -1,0 +1,27 @@
+{
+  "name": "joytag-node",
+  "version": "0.0.1",
+  "main": "index.ts",
+  "scripts": {
+    "start": "node src/index.ts",
+    "dev": "nodemon --watch src -e ts --exec 'node src/index.ts'"
+  },
+  "author": "XIAYM-gh",
+  "license": "MIT",
+  "packageManager": "pnpm@10.33.0",
+  "type": "module",
+  "dependencies": {
+    "@fastify/multipart": "^10.0.0",
+    "axios": "^1.16.1",
+    "cli-progress": "^3.12.0",
+    "dotenv": "^17.4.2",
+    "fastify": "^5.8.5",
+    "onnxruntime-node": "^1.26.0",
+    "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "@types/cli-progress": "^3.11.6",
+    "@types/node": "^25.8.0",
+    "nodemon": "^3.1.14"
+  }
+}
