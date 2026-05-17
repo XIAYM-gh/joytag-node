@@ -56,6 +56,14 @@ Try using a proxy (by setting environment variable `https_proxy`) and running ma
 
 If you are still having issues while downloading the model, you can manually download it ([download link](https://huggingface.co/fancyfeast/joytag/resolve/main/model.onnx)) and put it in the `data` folder.
 
+## Want lower disk usage and better performance?
+
+Try [joytag-onnx-Q8_0-quantized](https://huggingface.co/IamTheStormThatIsApproaching/joytag-onnx-Q8_0-quantized), a model quantized by me. It achieves ~10% better performance, uses merely 88MiB disk space and requires 200MiB less RAM. 
+
+To use, just download the `joytag-Q8_0.onnx`, rename it as `model.onnx` and move it into the `data` folder.
+
+But be aware of the precision loss, though it's not obvious.
+
 ## License
 
 This project is licensed under MIT License ([Full Text Here](/LICENSE)).
